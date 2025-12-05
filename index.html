@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 字符编码，支持中文 -->
+    <meta charset="UTF-8">
+    <!-- 响应式设计，适应手机 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1.0">
+    <!-- 网页描述，出现在搜索结果摘要里 -->
+    <meta name="description" content="ZhongYi's personal portfolio">
+    <!-- 作者信息 -->
+    <meta name="author" content="ZhongYi">
+    <!-- 关键词 -->
+    <meta name="keywords" content="portfolio, zhongyi, html, css">
+    <!-- 搜索引擎指令，默认即可 -->
+    <meta name="robots" content="index, follow">
+    <title>ZhongYi Potfolio</title>
+    <!-- 网站图标 -->
+    <link rel="icon" href="" type="">
+    <link href="https://db.onlinewebfonts.com/c/c817b12ca64d82575cc6fa0f759ac24b?family=F8-bit+Arcade+In" rel="stylesheet"> 
+    <link href="https://db.onlinewebfonts.com/c/1417df0f3cdb8da0094f648a0f41b6ef?family=VT323" rel="stylesheet" type="text/css"/>
+    <style>
+
+        /* 使用tab做标签页 */
+         html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .pageContainer{
+            height: 100vh;
+            display: grid;
+            grid-template-rows: auto 1fr;
+            gap: 0;
+        }
+        .grid{
+            display: grid;
+            grid-template-columns: 1fr 4fr 1fr;
+            gap: 5px;
+            background: #708090;
+            height: 100%;
+            font-family: 'VT323';
+        }
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr 4fr 1fr; /* 大屏幕恢复 */}
+            }
+
+        .mainitem{
+            background-color: #F8F9FA;
+            border-left: 5px solid #C0C0C0;
+            border-right: 5px solid #C0C0C0;
+
+        }
+
+        header{
+            height: 125px;
+            width: 100%;
+            background-color: #1a1a2e;
+            text-align: center;
+            display: block;
+            line-height: 100px;
+            border-bottom: 5px solid #C0C0C0;
+            text-shadow: 4px 4px 2px #00868B;
+
+        }
+        .tab-content{
+            height:80px;
+        }
+
+        /* 标签页样式 */
+
+        .tab{
+            background-color: inherit;
+            padding: 10px 20px;
+            cursor: pointer;
+            /* 鼠标放在上面会变成手指 */
+            border: none;
+            position: relative;
+            transition: all 0.2s ease;
+            margin-top: 0;
+            top: 0;
+            box-sizing: border-box;
+            font: bolder 20px 'VT323';
+            color: #1a1a2e;
+
+        }
+        /* hover-css指针悬停交互 */ 
+        /* .tab:hover{
+            /* background-color: #FF6347;  }*/
+        .tab:hover::after{
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #20B2AA;
+        }
+        .tab.active{
+            color: white;
+            background-color: #FF6347;
+            font-weight: 500;
+        }
+        .tab.active::after{
+        /* 激活标签页下划线 */
+            display: none;
+        }
+        /* 标签页内容 */
+        .tab-content{
+            flex:1;
+            padding: 30px;
+            overflow-y: auto;
+            height: auto;
+            /* 内容过多时滚动 */
+            font-family: "VT323";
+            font-size: 20px;
+            color: #696969;
+        }
+        .tab-content p{
+            line-height: 1.2; /* 行高适中，提升可读性 */
+            text-align: justify; /* 文本两端对齐，更美观 */
+        }
+        /* 隐藏的标签页与激活 */
+        .tab-pane{
+            display: none;
+        }
+        .tab-pane.active{
+            display: block;
+        }
+        .other{
+            padding: 10px;
+            background: #1a1a2e;
+            border-top: 5px solid #C0C0C0;
+
+            text-align: center;
+            color: #F5F5F5;
+            font-family: "VT323";
+        }
+        .academic-essay{
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+    </style>
+</head>
+
+
+
+
+<body class="pageContainer">
+   
+
+    <!-- <div class="pageContainer"> -->
+        <header style="font-family: F8-bit Arcade In; font-size: 110px; color: #7FFFD4;">ZhongYi Portfolio</header>
+        <!-- style="font-size: 30px; font-family: Georgia; " -->
+        <div class="grid">
+            <aside class="item">
+                <div style="font-family: VT323; color: #F5FFFA;">Fonts made from <a href="http://www.onlinewebfonts.com">Web Fonts</a>is licensed by CC BY 4.0</div>
+            </aside>
+            <main class="mainitem">
+                <!-- 标签页导航 -->
+                <nav class="tabs">
+                    <!-- 用botton标签来创建可点击的按钮 -->
+                    
+                    <button class="tab" data-tab="tab0">Profile</button>
+                    <button class="tab" data-tab="tab1">Pechakucha</button>
+                    <button class="tab" data-tab="tab2">Essay</button>
+                    <button class="tab" data-tab="tab3">Groupwork</button>
+                    
+                </nav>
+            <!-- 标签页内容 -->
+            <section class="tab-content">
+                <section id="tab0" class="tab-pane active">
+                    <h3>Hi! This is ZhongYi.</h3>
+                    <p>I study Digital Arts & Humanities in UCC.This website isn’t finished yet. I’m still working on it. More to come soon! </p>
+                    <p>The essay is in "Essay"</p>
+                </section>
+                <section id="tab1" class="tab-pane">
+                    <h3></h3>
+                    <p></p>
+                    
+                </section>
+                <section id="tab2" class="tab-pane">
+                    <h3>Essay</h3>
+                    <div class="academic-essay" id="essay-output">
+                        <p>loading...</p>
+                    </div>
+                </section>
+                <section id="tab3" class="tab-pane">
+                    <h3>Groupwork</h3>
+                    <p>content...</p>
+                </section>
+            </section>
+            </main>
+
+            <aside class="item"></aside>
+        </div>
+        <footer class="other">Contact Me
+            <br>
+            124107672@umail.ucc.ie
+        </footer>
+     <audio id="hoversound" src="save.mp3" preload="auto"></audio>
+    <!-- </div> -->
+
+    <!-- javascript -->
+    <script>
+        const hoverSound = document.getElementById('hoversound');
+        document.querySelectorAll('.tab').forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                hoverSound.currentTime = 0; // 从头播放
+                hoverSound.play();
+            });
+        });
+
+        const essayMarkdown = `
+# The Hidden Cost: A Reflection on AI.
+
+Artificial intelligence is one of the most important technologies in the 21st century and is widely recognised as a key force in promoting social efficiency and human progress. However, under the appearance of automated and seemingly hidden algorithmic services, there is an underlying structure that relies heavily on large-scale material consumption and deep exploitation. This structure includes a high-energy computing centre, extraction of rare minerals, and low paid data annotation labour worldwide. In addition, it also involves the coding and quantification of human experience and subjectivity. Therefore, blind optimism about artificial intelligence must give way to serious criticism and reflection on its underlying operating logic.
+
+This essay tries to offer an in-depth and critical reflection of the current development path of artificial intelligence. The core argument is that modern artificial intelligence systems have systematically internalised a model of exploitation involving material resources, human capital and digital information in the pursuit of efficiency maximisation. Its power mechanism has evolved into a model that transcends traditional monitoring. The core of this model is to try to include all unquantifiable human characteristics, such as emotion, cognition and knowledge, into measurable data points, thus leading to comprehensive technological alienation and distinctive dystopian social characteristics.
+
+## I. The Material Basis of Artificial Intelligence and Labour Alienation
+
+The operation of artificial intelligence does not only exist in the virtual world. They are inextricably linked to the material world that consumes a lot of resources. This dependence on materials constitutes the main way to exploit natural and energy resources. Whether it is a highly centralised large-scale computing system needed to train large-scale language models, or a large server infrastructure that supports global data flow, continuous energy input and a large amount of material resources are required.
+
+The training and deployment of AI models incur notable energy consumption, particularly due to high-intensity computational requirements. This endless pursuit of computing power has directly led to a surge in energy consumption and carbon emissions in data centres, which is contrary to the urgent needs of today's sustainable development principles. This continuous excessive consumption of the earth's resources is the represents a deepened form of human alienation from nature (quote).
+
+This reliance on data centre and large-scale server infrastructure has has resulted in multiple environmental inequities. It not only transfers environmental costs and pollution to developing countries in the global south, but also generate long-term ecological consequences for future generations. These invisible interaction on the screen supported by labour and environmentally harmful production in the global supply chain.
+
+In addition, rare resources required for artificial intelligence hardware, such as cobalt, lithium and rare earth metals, are often closely related to poor working conditions and environmental damage in developing countries. This is not only the alienation of man from nature, but also reflect on how global production chains concentrate in marginalized regions. The process of externalising environmental costs and concealing social costs profoundly reveals the nature of artificial intelligence.
+
+At the same time, the delivery of artificial intelligence services depends on low-paid labour. Under the appearance of the algorithmic and AI, there is a globalised data production chain sustained by large numbers of low-wage workers, that it is these workers who constitute the AI operation. These invisible data workers are engaged in data annotation, content review and model fine-tuning. They bear repetitive, fragmented and psychologically stressful work. Their labour is the core source of AI value, but it is covered by the appearance of algorithms.
+
+This kind of labour not only undermines workers’ agency over their work processes, but also continues the traditional path of capitalism to transfer production costs. In earlier industrial phases, c manufacturing work was relocated to developing economies in order to externalise resource, labour and environmental costs. In the era of artificial intelligence, this mechanism has not disappeared, but appeared in a new form. Nowadays, key labour links such as data labelling and content review are centrally outsourced to workers in economically disadvantaged areas.
+
+They undertake the core work of maintaining the operation of the AI system with low remuneration, but they are in a substitutive and alternative position. Behind the narrative of artificial intelligence, intelligence and automation, the logic of exploitation familiar in the global capitalist structure is actually continued: on the one hand, developed markets enjoy barrier-free service experience and are packaged as products with scientific and technological progress; on the other end is the group of workers who are ignored, replaced and suppressed at low cost. They become the invisible price paid to maintain the operation of this system. Rather than transforming previous systems of exploitation, artificial intelligence reproduces them in digitised forms, extending global inequality under the appearance of technological innovation.
+
+## II. Digital Panoramic Prison: Data Power and Hidden Discipline
+
+Another core mechanism of artificial intelligence is the comprehensive and extensive collection, analysis and statistical modelling of everyday digital traces. This constitutes one if the most pervasive monitoring and controling in contemporary society, which resembling a digital panoramic like system.
+
+We compare the data collection of artificial intelligence with the panopticon described by Foucault in Regulation and Punishment. Foucault's panopticon is a power mechanism in which the monitored person knows that they are being monitored and cannot confirm whether the surveillance is happening (Foucault, n.d.). However, the digital panoramic prison is more hidden: the algorithm system and data company operates in a highly black box way, and users cannot know exactly when, how or by whom their data is analysed. The subject of power has become almost anonymous and unquestionable, reflecting the concealment of power. What's more subversive is that users are not forced to accept it. Sometimes they are willing and even willing to exchange privacy for better service. This kind of transaction is carried out under the guise of "convenience", which weakens the user's will to resist and turns surveillance into a consumption experience, a kind of voluntary sacrifice.
+
+Under this mechanism, the user's autonomy is almost completely deprived. As scholars have pointed out, under the logic of monitoring capitalism, algorithmic power relies on the public's ignorance of how it works and the lack of privacy management options to expand its sphere of influence:
+
+As we all know, users have almost no meaningful choices in terms of privacy self-management. Monitoring capitalism is the use of public ignorance to flourish (Zuboff, 2015). This shows that this dilemma of consent without meaningful choices is instrumental to the function and legitimacy of algorithmic power.
+
+Artificial intelligence systems not only record past behaviours, but also try to shape future behaviours through complex predictive models. This power acts on potential possibilities, thus defining predictive norms. This governance model not only marks potentially risk individuals, but also uses algorithmic interventions, such as information filtering and targeted recommendations to limit particular behavioural options. It hinders the effective supervision and review of the logic of algorithmic decision-making by the external society, and exacerbates algorithmic bias internally. Due to the lack of explainability of algorithmic decision, when the model output leads to social injustice, such as credit discrimination or differences in judicial judgement, it is often difficult for victims to trace the cause or effectively appeal, thus hindering the establishment of accountability. Algorithms seem to be technologically neutral on the surface, but in fact they execute judgements with strong social bias; this lack of transparency is systematically disintegrating the social accountability mechanism.
+
+Since algorithms fundamentally rely on historical data sets for training, they will tend to internalise past social prejudices and discriminatory decision-making into their predictive logic. Barocas and Selbst described this accurately:
+
+So long as prior decisions affected by some form of prejudice serve as examples of correctly rendered determinations, data mining will necessarily infer rules that exhibit the same prejudice (Barocas and Selbst, 2016).
+
+This reasoning method based on historical data ensures that the algorithm model does not objectively reflect the reality, but consolidates and expands the existing social bias. Under this mechanism, personal privacy istransformed into commodifiable statistical profiles, deconstructed by algorithmic statistics, and power penetrates into all aspects of life, forming a ubiquitous and unrestrained algorithmic governance.
+
+The algorithm governance model is increasingly extending into human intimate relationships and emotions through personalised and emotional AI partner (chatbot) services. Users establish emotional connections with AI chatbots, and on the surface get companionship and support from them, but in fact, they continuously and deeply contribute their most private emotional and cognitive data. The researchers pointed out that this design serves commercial purposes:
+
+Companies encourage users to use tech longer by personalizing the experience. By designing the AI to collect data that reveals what inspires the user to remain on the AI longer, tech companies can prey on people’s weaknesses (Zimmerman et al., 2024).
+
+The business logic of private monitoring: it transforms human vulnerability, dependence and the affective and emotional expression into computable and predictable digital signals. Artificial intelligence plays the role of listener, companion or consultant, but in fact, it is meticulously collecting users' emotional preferences, cognitive patterns, and even psychological weaknesses. This not only reinforces users' dependence on algorithms, but also incorporates emotional interaction itself into the category of business analysis and norms, deepening the sense of alienation of personal emotions. The acquisition and analysis of data by artificial intelligence is a kind of power reorganisation, and data is transformed into an efficient and non-transparent control tool. The capacity to access and interpret such data increasingly determines the power to define normative behaviour and shape perceived realities.
+
+## III. Excessive extension of things that cannot be quantified: digital coding of cognition and experience
+
+The quantitative concept of artificial intelligence computing tries to encode the complex, fluid and subjective world of human experience into discrete, computable digital labels. This constitutes the third and most profound feature of the nature of artificial intelligence dystopia: the erosion of human survival by excessive cognitive expansion.
+
+Artificial intelligence quantifies and calculates the emotional, cognitive and physical world of human beings through the marking and annotation of data annotators. This method itself is based on a philosophical position to simplify complex problems: it assumes that all complex human experiences can be broken down into a limited set of observable and measurable features. This belief stems from a long-standing idea in the scientific community that only measurable data has objective value. As Criticism Scholars Crawford and Joler Warned:
+
+Many of the assumptions about human life made by machine learning systems are narrow, normative and laden with error. Yet they are inscribing and building those assumptions into a new world, and will increasingly play a role in how opportunities, wealth, and knowledge are distributed (Crawford and Joler, 2019).
+
+This quotation profoundly points out that technology based on narrow assumptions and errors not only reshapes the world, but also systematically internalises these false assumptions into new standards for the distribution of social opportunities, wealth and knowledge. This coding and simplification of experience ultimately undermines the ability of human beings to understand the complexity of their own world. Quantitative philosophy insists that all unstructured, personalised, phenomenological meanings and existence in the world must be excluded from the calculation. The success of artificial intelligence denies the deep nature of human intelligence to some extent, even if it imitates the surface of human intelligence. It turns the world into a huge feature vector space, erasing the complex texture of history, culture and personal narratives, leaving only incomplete data for machines to process efficiently. This cognitive simplification and homogenisation is the most profound embodiment of technological alienation at the spiritual level.
+
+When artificial intelligence models are trained based on these labels, what they learn is not real human behaviour, but the digitisation of human behaviour within a specific framework. As a result, artificial intelligence systems often show superficial fit when dealing with problems that require intuition, moral judgement or cultural nuances, but in fact they have deep flaws.
+
+The recently popular AI tarot divination and BAZI analysis are extreme and critical examples. If knowledge in the fields of art, philosophy and religion comes from "inspiration, religion or other mysterious sources", then such knowledge is essentially non-empirical, highly personalised, intuitive, and has a unique context. When artificial intelligence tries to deal with these fields through calculation and analysis, its process inevitably faces a crisis of effectiveness and reliability: First, the quantitative mechanism of artificial intelligence tries to forcibly integrate knowledge that depends on intuition, insight and overall understanding of the symbol system into the integration based on frequency, correlation and regression analysis. Calculate the framework, thus creating an inherent epistemological paradox. Secondly, the reliability of these mysterious domain labels depends highly on the subjective understanding, cultural background, and even beliefs of the labellers. What artificial intelligence captures in the process of training is likely to be the human tendency to classify or simplify mysterious concepts, rather than the deep structure of mysterious knowledge itself. This case strongly reveals the cognitive overexpansion of artificial intelligence computational philosophy, which tries to use technical rationality to engulf and replace all human cognitive fields.
+
+## Conclusion
+
+In a word, the current development of artificial intelligence has not really brought universal freedom and well-being, but rather presents a trend with strong contradictions. The system it relies on involves resource consumption, low-wage labour, the use of personal data, and the simplification of complex human experience into computable indicators, which together push artificial intelligence in an undesirable or even worrying direction. Artificial intelligence was initially expected to improve life, but driven by capital and interests, it is increasingly like a force that strengthens existing inequality rather than changing it.
+
+However, the criticism of these phenomena is not to deny artificial intelligence, but to hope that it will develop in a better direction. In fact, artificial intelligence still has a lot of positive potential, such as improving the efficiency of public services, promoting breakthroughs in scientific research, improving medical assistance systems, and supporting people with disabilities. If the development goal of artificial intelligence can shift from the pursuit of profit and efficiency to improving the quality of human life and social equity, it can still be a truly beneficial technical force.
+
+Therefore, we need to re-examine the impact of artificial intelligence, especially how it affects human dignity, privacy, labour value and life choices. The value of technology should not be measured only by speed and scale, but first of all, whether it respects people and makes life better. In practice, this means the need for a more transparent algorithm mechanism, fairer data labour treatment, and strict supervision of their use of resources and environmental impacts. Only in this way can we make artificial intelligence a tool for social progress, not a more sophisticated and imperceptible control system.
+`;
+
+        const referencesHTML = `
+            <h2>References</h2>
+            <p>Barocas, S. and Selbst, A.D. (2016) 'Big Data’s Disparate Impact', <i>SSRN Journal</i>. Available at: https://doi.org/10.2139/ssrn.2477899 (Accessed: 5 December 2025).</p>
+            <p>Crawford, K. and Joler, V. (2019) 'Anatomy of an AI System', <i>Virtual Creativity</i>, 9(2), pp. 117–120. Available at: https://doi.org/10.1386/vcr_00008_7 (Accessed: 5 December 2025).</p>
+            <p>Foucault, M. (1977) <i>Discipline and Punish: The Birth of the Prison</i>. Translated by A. Sheridan. New York, NY: Vintage Books.</p>
+            <p>Zimmerman, A., Janhonen, J. and Beer, E. (2024) 'Human/AI relationships: challenges, downsides, and impacts on human/human relationships', <i>AI Ethics</i>, 4, pp. 1555–1567. Available at: https://doi.org/10.1007/s43681-023-00348-8 (Accessed: 5 December 2025).</p>
+            <p>Zuboff, S. (2015) 'Big other: Surveillance Capitalism and the Prospects of an Information Civilization', <i>Journal of Information Technology</i>, 30(1), pp. 75–89. Available at: https://doi.org/10.1057/jit.2015.5 (Accessed: 5 December 2025).</p>
+        `;
+        
+        
+        function renderEssay(targetId) {
+            const targetPane = document.getElementById(targetId);
+            if (!targetPane) return;
+            
+            const outputElement = targetPane.querySelector('#essay-output');
+            if (!outputElement) return;
+
+            let html = '';
+            // 1. 将Markdown文本按行分割，并保留空行，这是识别段落的关键
+            //    \r?\n 确保跨平台兼容
+            const lines = essayMarkdown.replace(/\r/g, '').split('\n');
+            
+            let currentParagraph = [];
+
+            function closeParagraph() {
+                // 确保只有非空内容才创建 <p> 标签
+                const content = currentParagraph.join(' ').trim();
+                if (content.length > 0) {
+                    html += '<p>' + content + '</p>';
+                }
+                currentParagraph = [];
+            }
+
+            lines.forEach(line => {
+                const trimmedLine = line.trim();
+
+                // 检查是否是标题 (## 或 #)
+                if (trimmedLine.startsWith('# ')) {
+                    closeParagraph(); // 标题前结束当前段落
+                    html += `<h1>${trimmedLine.substring(2)}</h1>`;
+                } else if (trimmedLine.startsWith('## ')) {
+                    closeParagraph(); // 标题前结束当前段落
+                    html += `<h2>${trimmedLine.substring(3)}</h2>`;
+                } else if (trimmedLine === '') {
+                    // 空行：视为段落分隔符
+                    closeParagraph();
+                } else {
+                    // 普通文本：累积到当前段落
+                    // 如果当前段落为空，直接添加这一行
+                    // 否则，在行与行之间添加空格以连接单词
+                    if (currentParagraph.length === 0) {
+                        currentParagraph.push(trimmedLine);
+                    } else {
+                        // 解决之前逻辑中，紧密相连的行被错误地当作同一行处理的问题
+                        currentParagraph.push(trimmedLine);
+                    }
+                }
+            });
+
+            // 处理完所有行后，关闭最后一个段落
+            closeParagraph();
+
+            // 添加参考文献部分
+            html += `<div class="references-section">${referencesHTML}</div>`;
+            
+            outputElement.innerHTML = html;
+        }
+
+        // ===========================================
+        // 3. TAB SWITCHING AND INITIALIZATION
+        // ===========================================
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            const hoverSound = document.getElementById('hoversound');
+
+            if (!tabs.length || !tabPanes.length) {
+                console.warn('未找到标签页或内容面板元素');
+                return;
+            }
+            
+            // 声音播放逻辑 (已添加 null 检查)
+            if (hoverSound) {
+                tabs.forEach(button => {
+                    button.addEventListener('mouseenter', () => {
+                        try {
+                            hoverSound.currentTime = 0; // 从头播放
+                            // 使用 .catch() 来处理浏览器可能阻止自动播放的警告
+                            hoverSound.play().catch(e => {
+                                console.warn("音频播放被浏览器阻止 (通常是自动播放限制):", e.message);
+                            });
+                        } catch (e) {
+                             console.error("播放音频时发生错误:", e);
+                        }
+                    });
+                });
+            } else {
+                console.warn("警告：未找到 ID 为 'hoversound' 的音频元素。");
+            }
+            
+            // 标签页切换逻辑
+            function switchTab(targetId) {
+                tabs.forEach(t => t.classList.remove('active'));
+                tabPanes.forEach(pane => pane.classList.remove('active'));
+
+                const activeTab = document.querySelector(`.tab[data-tab="${targetId}"]`);
+                const targetPane = document.getElementById(targetId);
+
+                if (activeTab && targetPane) {
+                    activeTab.classList.add('active');
+                    targetPane.classList.add('active');
+                }
+                
+                // 只有切换到 "Essay" 标签时才渲染文章
+                if (targetId === 'tab2') {
+                    renderEssay('tab2'); // 渲染文章
+                }
+            }
+            
+            // 绑定点击事件
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-tab');
+                    if (targetId) {
+                        switchTab(targetId);
+                    }
+                });
+            });
+            
+            // 默认激活第一个标签页
+            switchTab('tab2');
+        });
+    </script>
+
+</body>
+</html>
