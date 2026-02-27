@@ -291,61 +291,48 @@ In addition, this practice makes me think that the crowdsourcing project of folk
         `;
         
         
+        // 请找到你代码中的 renderEssay 函数，用下面这段替换掉：
+
         function renderEssay(targetId) {
             const targetPane = document.getElementById(targetId);
             if (!targetPane) return;
             
             const outputElement = targetPane.querySelector('#essay-output');
             if (!outputElement) return;
-
+        
             let html = '';
-            // 1. 将Markdown文本按行分割，并保留空行，这是识别段落的关键
-            //    \r?\n 确保跨平台兼容
             const lines = essayMarkdown.replace(/\r/g, '').split('\n');
-            
             let currentParagraph = [];
-
+        
             function closeParagraph() {
-                // 确保只有非空内容才创建 <p> 标签
                 const content = currentParagraph.join(' ').trim();
                 if (content.length > 0) {
-                    html += '<p>' + content + '</p>';
+                    // 在关闭段落前，检查段落内是否含有图片语法，并进行替换
+                    let parsedContent = content.replace(/!\[(.*?)\]\((.*?)\)/g, '<img src="$2" alt="$1" style="width:100%; max-width:800px; display:block; margin:20px 0; border-radius:8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">');
+                    html += '<p>' + parsedContent + '</p>';
                 }
                 currentParagraph = [];
             }
-
+        
             lines.forEach(line => {
                 const trimmedLine = line.trim();
-
-                // 检查是否是标题 (## 或 #)
+        
                 if (trimmedLine.startsWith('# ')) {
-                    closeParagraph(); // 标题前结束当前段落
+                    closeParagraph();
                     html += `<h1>${trimmedLine.substring(2)}</h1>`;
                 } else if (trimmedLine.startsWith('## ')) {
-                    closeParagraph(); // 标题前结束当前段落
+                    closeParagraph();
                     html += `<h2>${trimmedLine.substring(3)}</h2>`;
                 } else if (trimmedLine === '') {
-                    // 空行：视为段落分隔符
                     closeParagraph();
                 } else {
-                    // 普通文本：累积到当前段落
-                    // 如果当前段落为空，直接添加这一行
-                    // 否则，在行与行之间添加空格以连接单词
-                    if (currentParagraph.length === 0) {
-                        currentParagraph.push(trimmedLine);
-                    } else {
-                        // 解决之前逻辑中，紧密相连的行被错误地当作同一行处理的问题
-                        currentParagraph.push(trimmedLine);
-                    }
+                    // 如果这一行仅仅是一个图片，我们也先存入段落，稍后在 closeParagraph 里统一处理
+                    currentParagraph.push(trimmedLine);
                 }
             });
-
-            // 处理完所有行后，关闭最后一个段落
+        
             closeParagraph();
-
-            // 添加参考文献部分
             html += `<div class="references-section">${referencesHTML}</div>`;
-            
             outputElement.innerHTML = html;
         }
 
@@ -418,4 +405,5 @@ In addition, this practice makes me think that the crowdsourcing project of folk
 
 </body>
 </html>
+
 
